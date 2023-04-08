@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 exports.handler = async function(event, context) {
 	const apiKey = process.env.REACT_APP_API_KEY
 	const systemPrompt = process.env.REACT_APP_SYSTEM_PROMPT
