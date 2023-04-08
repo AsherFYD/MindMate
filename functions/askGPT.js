@@ -1,11 +1,11 @@
 exports.handler = async function(event, context) {
-	const apiKey = process.env.API_KEY
-	const systemPrompt = process.env.SYSTEM_PROMPT
+	const apiKey = process.env.REACT_APP_API_KEY
+	const systemPrompt = process.env.REACT_APP_SYSTEM_PROMPT
 	const systemMessage = {
 	  "role": "system", 
 	  "content": systemPrompt
 	}
-	const reminderMessage = process.env.REMINDER_MESSAGE
+	const reminderMessage = process.env.REACT_APP_REMINDER_MESSAGE
 	const eventBody = JSON.parse(event.body)
 	let chatMessages = eventBody.messages
 
