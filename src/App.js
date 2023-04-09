@@ -1,30 +1,28 @@
 import React, {useState} from 'react';
-import ChatBox from './ChatBox'
 import Header from './Header';
-import ChatHeader from './ChatHeader';
-import Footer from './Footer';
+import Home from './Home';
+import Resources from './Resources';
+import { Route, Routes, useHistory } from 'react-router-dom'
 
 function App() {
+  // load messages from localstorage if there are messages stored, else initialise as empty array
   const [messages, setMessages] = useState(
                                     localStorage.getItem("messages") 
                                       ? JSON.parse(localStorage.getItem("messages")) : []
-                                  ); // load messages from localstorage if there are messages stored, else initialise as empty array
+                                  );
 
   return (
     <div className="App">
       <Header />
-      <ChatHeader 
-        messages={messages}
-      />
-      <div className="ChatBox">
-          <ChatBox 
+      <Routes>
+        <Route exact path='/' element={<Home 
             messages={messages}
             setMessages={setMessages}
-          />
-      </div>
-      <Footer 
-        setMessages={setMessages}
-      />
+          />}>
+        </Route>
+        <Route exact path='/resources' element={<Resources/>}>
+        </Route>
+      </Routes>
     </div>
   );
 }

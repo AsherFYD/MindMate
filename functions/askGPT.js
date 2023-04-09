@@ -37,7 +37,6 @@ exports.handler = async function(event, context) {
 	  ]
 	}
 
-	// maybe use axios?
 	try{
 		const reply = await fetch("https://api.openai.com/v1/chat/completions",
 		{
