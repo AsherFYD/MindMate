@@ -139,6 +139,7 @@ code {
 
 .Resources{
   height: 93%;
+  width:80%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,7 +164,7 @@ th {
   background-color: #95A5A6;
 }
 
-@media (width <= 500px) {
+@media (width <= 550px) {
   .Header h1{
     font-size: 24px;
   }
@@ -183,6 +184,10 @@ th {
 
   .Footer button{
     padding: 5px 15px;
+    font-size: 12px;
+  }
+
+  .Resources{
     font-size: 12px;
   }
 }
