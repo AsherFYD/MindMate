@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Header from './Header';
 import Home from './Home';
 import Resources from './Resources';
@@ -10,13 +10,21 @@ function App() {
     const doc = document.documentElement
     doc.style.setProperty('--doc-height', `${window.innerHeight}px`)
   }
-  // window.addEventListener("resize", documentHeight)
+  window.addEventListener("resize", documentHeight)
   documentHeight() // call when app is first loaded
 
   // whenever resize event happens
-  useEffect(() => {
-    documentHeight()
-  }, window.addEventListener("resize", documentHeight))
+  // useEffect(() => {
+  //   const documentHeight = () => {
+  //     const doc = document.documentElement
+  //     doc.style.setProperty('--doc-height', `${window.innerHeight}px`)
+  //   }
+
+  //   window.addEventListener("resize", documentHeight)
+  //   return () => {
+  //     window.removeEventListener("resize", documentHeight)
+  //   }
+  // }, [])
 
   // load messages from localstorage if there are messages stored, else initialise as empty array
   const [messages, setMessages] = useState(
