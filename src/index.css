@@ -1,3 +1,7 @@
+:root {
+  --doc-height: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,7 +22,8 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 100vh; /* fallback for Js load */
+  height: var(--doc-height);
   width: 100vw;
   background-color: #94abbd;
 }
@@ -26,7 +31,7 @@ code {
 .Header {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   background-color: #ADD8E6;
   width: 100%;
@@ -39,40 +44,40 @@ code {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  margin-top: 1rem;
+  margin: 1rem;
 }
 
 .Header li {
-  padding: 1rem;
+  margin-left: 1rem;
 }
 
-.Header li:hover, 
-.Header li:focus {
+/* .Header li:hover {
   padding: 1rem;
-}
+} */
 
 .Header li a {
   color: #000;
   text-decoration: none;
 }
 
-.Header li:hover, 
-.Header li:focus, 
-.Header li:hover a, 
-.Header li:focus a  {
+.Header li:hover,
+.Header li:hover a {
   background-color: #eee;
   color: #333;
 }
 
-.Header li:hover a, 
-.Header li:focus a {
+.Header li:hover a {
   cursor: pointer;
 }
 
 .HeaderComponents{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.HeaderComponents h1{
+  margin: 0%;
 }
 
 .cat-icon-container{
@@ -139,7 +144,7 @@ code {
 
 .Resources{
   height: 93%;
-  width:80%;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -164,7 +169,7 @@ th {
   background-color: #95A5A6;
 }
 
-@media (width <= 550px) {
+@media (width <= 550px), (height <= 900px){
   .Header h1{
     font-size: 24px;
   }
@@ -190,4 +195,32 @@ th {
   .Resources{
     font-size: 12px;
   }
+}
+
+@media (width <= 450px) {
+  .Resources{
+    font-size: 10px;
+  }
+
+  .Header {
+    justify-content: flex-start;
+  }
+
+  .Header li{
+    font-size: 10px;
+  }
+}
+
+@media (orientation: portrait) {
+ .Header{
+  height: 5%;
+ }
+
+ .ChatHeader{
+  height: 5%;
+}
+
+ .Resources{
+  height: 95%;
+}
 }
