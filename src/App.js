@@ -37,6 +37,7 @@ function App() {
     return windowSize;
   }
   const { height } = useWindowSize();
+  console.log(height)
 
   // load messages from localstorage if there are messages stored, else initialise as empty array
   const [messages, setMessages] = useState(
